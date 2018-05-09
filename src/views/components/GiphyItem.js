@@ -11,19 +11,23 @@ const styles = theme => ({
 });
 
 class GiphyItem extends React.Component {
+  onClick = e => {
+    const { giphy, onItemClick } = this.props;
+    onItemClick(giphy.images.original);
+  };
   render() {
-    const { classes, data } = this.props;
+    const { classes, giphy } = this.props;
     return (
-      <div>
+      <div onClick={this.onClick}>
         <Card className={classes.card}>
           <GiyphyImage
-            images={data.images}
+            images={giphy.images}
             rendition={"fixed_height"}
-            title={data.title}
+            title={giphy.title}
           />
           <GiyphyAction />
         </Card>
-        <GiyphyUser user={data.user} />
+        <GiyphyUser user={giphy.user} />
       </div>
     );
   }
@@ -31,7 +35,8 @@ class GiphyItem extends React.Component {
 
 GiphyItem.propTypes = {
   classes: PropTypes.object.isRequired,
-  data: PropTypes.object.isRequired
+  giphy: PropTypes.object.isRequired,
+  onItemClick: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(GiphyItem);

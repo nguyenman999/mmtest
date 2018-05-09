@@ -14,6 +14,9 @@ const styles = theme => ({
   div: {
     flex: "1 1 auto"
   },
+  icon: {
+    width: "30px"
+  },
   typo: {
     color: "#C6CBD4",
     fontSize: "10px",
@@ -23,29 +26,29 @@ const styles = theme => ({
 
 class GiphyAction extends React.Component {
   render() {
-    const { classes, heart, comment, view, share } = this.props;
+    const { classes, heart, comment, view } = this.props;
     return (
       <CardActions className={classes.actions} disableActionSpacing>
         <IconButton aria-label="Share">
-          <Icon>attach_file</Icon>
+          <Icon className={classes.icon}>attach_file</Icon>
         </IconButton>
         <div className={classes.div} />
         <IconButton aria-label="View">
-          <Icon>visibility</Icon>
+          <Icon className={classes.icon}>visibility</Icon>
           <Typography className={classes.typo} variant="body2">
-            {10}
+            {view}
           </Typography>
         </IconButton>
         <IconButton aria-label="Comment">
-          <Icon>mode_comment</Icon>
+          <Icon className={classes.icon}>mode_comment</Icon>
           <Typography className={classes.typo} variant="body2">
-            {10}
+            {comment}
           </Typography>
         </IconButton>
         <IconButton aria-label="Heart">
-          <Icon>favorite</Icon>
+          <Icon className={classes.icon}>favorite</Icon>
           <Typography className={classes.typo} variant="body2">
-            {10}
+            {heart}
           </Typography>
         </IconButton>
       </CardActions>
@@ -55,10 +58,9 @@ class GiphyAction extends React.Component {
 
 GiphyAction.propTypes = {
   classes: PropTypes.object.isRequired,
-  heart: PropTypes.number.isRequired,
-  comment: PropTypes.number.isRequired,
-  view: PropTypes.number.isRequired,
-  share: PropTypes.number.isRequired
+  heart: PropTypes.number,
+  comment: PropTypes.number,
+  view: PropTypes.number
 };
 
 export default withStyles(styles)(GiphyAction);

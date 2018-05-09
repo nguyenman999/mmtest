@@ -22,3 +22,18 @@ export const fetchGiphyTrending = (page, perPage) => {
     );
   };
 };
+
+export const ON_GIPHY_ITEM_CLICK = "ON_GIPHY_ITEM_CLICK";
+export const onGiphyItemClick = value => {
+  return {
+    type: ON_GIPHY_ITEM_CLICK,
+    data: value
+  };
+};
+
+export const ON_GIPHY_PREVIEW_CLOSE = "ON_GIPHY_PREVIEW_CLOSE";
+export const onGiphyPreviewClose = () => {
+  return {
+    type: ON_GIPHY_PREVIEW_CLOSE
+  };
+};

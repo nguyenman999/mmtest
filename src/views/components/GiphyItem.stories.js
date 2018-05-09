@@ -220,4 +220,4 @@ const data = {
   },
   title: "alia shawkat eating GIF by The Orchard Films"
 };
-storiesOf("GiphyItem", module).add("default", () => <GiphyItem data={data} />);
+storiesOf("GiphyItem", module).add("default", () => <GiphyItem giphy={data} />);

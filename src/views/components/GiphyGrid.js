@@ -12,14 +12,15 @@ const styles = theme => ({
 
 class GiphyGrid extends React.Component {
   render() {
-    const { classes, data } = this.props;
-    const gridItems = data.map(giphy => {
+    const { classes, trending } = this.props;
+    const gridItems = trending.map((giphy, idx) => {
       return (
-        <Grid item xs={6} sm={4} md={4} lg={3} xl={3}>
-          <GiphyItem data={giphy} />
+        <Grid item key={idx} xs={6} sm={4} md={4} lg={3} xl={3}>
+          <GiphyItem giphy={giphy} onItemClick={this.props.onItemClick} />
         </Grid>
       );
     });
+
     return (
       <Grid container className={classes.root} spacing={16}>
         {gridItems}
@@ -28,9 +29,14 @@ class GiphyGrid extends React.Component {
   }
 }
 
+GiphyGrid.defaultProps = {
+  trending: []
+};
+
 GiphyGrid.propTypes = {
   classes: PropTypes.object.isRequired,
-  data: PropTypes.array.isRequired
+  trending: PropTypes.array.isRequired,
+  onItemClick: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(GiphyGrid);

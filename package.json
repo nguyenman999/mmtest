@@ -21,13 +21,17 @@
   "scripts": {
     "start": "NODE_PATH=./src react-scripts start",
     "build": "NODE_PATH=./src react-scripts build",
-    "test": "NODE_PATH=./src react-scripts test --env=jsdom",
+    "test": "NODE_PATH=./src CI=true react-scripts test --env=jsdom",
     "eject": "NODE_PATH=./src react-scripts eject",
     "storybook": "NODE_PATH=./src start-storybook -p 9009 -c .storybook"
   },
   "devDependencies": {
+    "@storybook/addon-storyshots": "^3.4.3",
     "@storybook/react": "^3.4.3",
     "babel-core": "^6.26.3",
-    "prettier": "^1.12.1"
+    "fetch-mock": "^6.3.0",
+    "prettier": "^1.12.1",
+    "react-test-renderer": "^16.3.2",
+    "redux-mock-store": "^1.5.1"
   }
 }

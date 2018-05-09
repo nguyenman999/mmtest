@@ -16,7 +16,11 @@ class GiphyReview extends React.Component {
         onClose={onPreviewClose}
         open={giphy !== null}
       >
-        {giphy ? <video alt="Full screen" src={giphy.mp4} autoPlay loop /> : ""}
+        {giphy ? (
+          <video alt="Full screen" src={giphy.mp4} autoPlay loop />
+        ) : (
+          <div />
+        )}
       </Dialog>
     );
   }
@@ -24,8 +28,8 @@ class GiphyReview extends React.Component {
 
 GiphyReview.propTypes = {
   classes: PropTypes.object.isRequired,
-  giphy: PropTypes.object.isRequired,
-  onPreviewClose: PropTypes.func.isRequired
+  onPreviewClose: PropTypes.func.isRequired,
+  giphy: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(GiphyReview);

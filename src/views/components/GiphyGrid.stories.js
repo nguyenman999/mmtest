@@ -4284,5 +4284,5 @@ const data = [
 ];
 
 storiesOf("GiphyGrid", module).add("default", () => (
-  <GiphyGrid trending={data} />
+  <GiphyGrid trending={data} onItemClick={action("onItemClick")} />
 ));

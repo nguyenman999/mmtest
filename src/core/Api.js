@@ -36,7 +36,7 @@ export const fetchFromApi = (
   successAction,
   failAction
 ) => {
-  fetch(url, params)
+  return fetch(url, params)
     .then(checkApiResponse)
     .then(res => res.json())
     .then(data => {

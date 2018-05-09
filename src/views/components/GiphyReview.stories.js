@@ -16,5 +16,5 @@ const giphy = {
   hash: "giphy.gif"
 };
 storiesOf("GiphyReview", module).add("default", () => (
-  <GiphyReview giphy={giphy} />
+  <GiphyReview giphy={giphy} onPreviewClose={action("onPreviewClose")} />
 ));

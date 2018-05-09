@@ -5,7 +5,8 @@ import { CardMedia } from "material-ui/Card";
 
 const styles = theme => ({
   media: {
-    height: 0
+    height: 200,
+    margin: theme.spacing.unit
   }
 });
 
@@ -15,8 +16,8 @@ class GiphyImage extends React.Component {
     return (
       <CardMedia
         className={classes.media}
-        image={images[rendition]}
-        title={title}
+        image={images[rendition].url}
+        alt={title}
       />
     );
   }

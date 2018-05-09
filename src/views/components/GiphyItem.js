@@ -1,13 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "material-ui/styles";
-import Grid from "material-ui/Grid";
-import Card, {
-  CardHeader,
-  CardMedia,
-  CardContent,
-  CardActions
-} from "material-ui/Card";
+import Card from "material-ui/Card";
+import GiyphyImage from "views/components/GiphyImage";
+import GiyphyUser from "views/components/GiphyUser";
+import GiyphyAction from "views/components/GiphyAction";
 
 const styles = theme => ({
   card: {}
@@ -15,13 +12,26 @@ const styles = theme => ({
 
 class GiphyItem extends React.Component {
   render() {
-    const { classes } = this.props;
-    return <Card className={classes.card} />;
+    const { classes, data } = this.props;
+    return (
+      <div>
+        <Card className={classes.card}>
+          <GiyphyImage
+            images={data.images}
+            rendition={"fixed_height"}
+            title={data.title}
+          />
+          <GiyphyAction />
+        </Card>
+        <GiyphyUser user={data.user} />
+      </div>
+    );
   }
 }
 
 GiphyItem.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(GiphyItem);

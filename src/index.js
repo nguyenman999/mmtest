@@ -12,9 +12,11 @@ import {
 } from "react-router-redux";
 import createBrowserHistory from "history/createBrowserHistory";
 import MMTheme from "themes/MMTheme";
-import App from "views/App";
+import App from "containers/App";
+import appReducer from "reducers/App";
 
 const reducers = combineReducers({
+  app: appReducer,
   router: routerReducer
 });
 
